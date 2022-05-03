@@ -36,9 +36,12 @@ namespace API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
 
-            services.AddDbContext<StoreContext>(options => {
+            services.AddDbContext<StoreContext>(options =>
+            {
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddCors();
         }
 
 
@@ -55,6 +58,10 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            #region Cors configuration
+            app.UseCors(opt => opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000"));
+            #endregion
 
             app.UseAuthorization();
 
