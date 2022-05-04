@@ -1,6 +1,6 @@
-import { Avatar, Button, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material';
-import React from 'react'
+import { Button } from '@mui/material';
 import { Product } from '../../app/models/product'
+import ProductList from './ProductList';
 
 // added signature for props
 interface Props {
@@ -11,21 +11,7 @@ interface Props {
 export default function Catalog({products, addProduct}: Props) {
     return (
         <>
-            <h2>Catalog</h2>
-            <List>
-                {
-                    products.map(product => (
-                        <ListItem key={product.id}>
-                            <ListItemAvatar>
-                                <Avatar src={product.pictureUrl} />
-                            </ListItemAvatar>
-                            <ListItemText>
-                                {product.name} - {product.price}
-                            </ListItemText>
-                        </ListItem>
-                    ))
-                }
-            </List>
+            <ProductList products={products} />
             <Button variant='contained' onClick={addProduct}>Add Product</Button>
         </>
     )
