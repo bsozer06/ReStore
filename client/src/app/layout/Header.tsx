@@ -32,7 +32,6 @@ const navStyles = {
 
 export default function Header({ darkMode, handleThemeChange }: Props) {
   return (
-    //margin bottom css
     <AppBar position='static' sx={{ mb: 4 }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Box display="flex" alignItems="center" >
