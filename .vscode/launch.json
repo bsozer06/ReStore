@@ -30,6 +30,14 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
-        }
+        },
+        // firstly, you should run appp using "npm start", after that working with debugger!!!s
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+          }
     ]
 }
