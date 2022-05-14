@@ -20,7 +20,7 @@ namespace API.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetBasket")]
         public async Task<ActionResult<BasketDto>> GetBasket()
         {
             var basket = await RetrieveBasket();
@@ -30,9 +30,8 @@ namespace API.Controllers
             return MapBasketToDto(basket);
         }
 
-        
 
-        [HttpPost(Name = "GetBasket")]
+        [HttpPost]
         public async Task<ActionResult<BasketDto>> AddItemToBasket(int productId, int quantity)
         {
             var basket = await RetrieveBasket();
@@ -68,9 +67,9 @@ namespace API.Controllers
             if (result) return Ok();
 
             return BadRequest(new ProblemDetails
-                {
-                    Title = "Problem removing item from the basket"
-                }
+            {
+                Title = "Problem removing item from the basket"
+            }
             );
 
 
@@ -78,11 +77,10 @@ namespace API.Controllers
 
         private async Task<Basket> RetrieveBasket()
         {
-            var basket = await _context.Baskets
+            return await _context.Baskets
                             .Include(i => i.Items)
                             .ThenInclude(t => t.Product)
                             .FirstOrDefaultAsync(x => x.BuyerId == Request.Cookies["buyerId"]);
-            return basket;
         }
 
         private Basket CreateBasket()
@@ -116,7 +114,7 @@ namespace API.Controllers
                     PictureUrl = item.Product.PictureUrl,
                     Type = item.Product.Type,
                     Brand = item.Product.Brand,
-                    Quantity = item.Product.QuantityInStock
+                    Quantity = item.Quantity
                 }).ToList()
             };
         }

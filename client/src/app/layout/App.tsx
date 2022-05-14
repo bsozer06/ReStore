@@ -1,6 +1,5 @@
 import { Container, createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { useEffect, useState } from "react";
-// import { Route } from "react-router";
 import { ToastContainer } from "react-toastify";
 import AboutPage from "../../features/about/AboutPage";
 import Catalog from "../../features/catalog/Catalog";
@@ -29,6 +28,8 @@ function App() {
         .then(basket => setBasket(basket))
         .catch(error => console.log(error))
         .finally(() => setLoading(false))
+    } else {
+      setLoading(false); 
     }
   }, [setBasket])
 
