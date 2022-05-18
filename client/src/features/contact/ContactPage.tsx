@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Typography } from '@mui/material'
 import { useAppDispatch, useAppSelector } from '../../app/store/configureStore';
-import { decrement, increment } from './counterReducer'
+import { decrement, increment } from './counterSlice'
 
 export default function ContactPage() {
 
@@ -12,12 +12,10 @@ export default function ContactPage() {
       <Typography variant='h2'>{title}</Typography>
       <Typography variant='h2'>{data}</Typography>
       <ButtonGroup>
-        <Button onClick={() => dispatch(decrement()) } variant="contained" color="error">-</Button>
-        <Button onClick={() => dispatch(increment()) } variant="contained" color="primary">+</Button>
+        <Button onClick={() => dispatch(decrement(1)) } variant="contained" color="error">-</Button>
+        <Button onClick={() => dispatch(increment(1)) } variant="contained" color="primary">+</Button>
         <Button onClick={() => dispatch(increment(10)) } variant="contained" color="secondary">+10</Button>
       </ButtonGroup>
-
     </>
-
   )
 }
