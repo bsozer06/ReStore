@@ -13,7 +13,6 @@ axios.interceptors.response.use(async response => {
     await sleep();
     return response;
 }, (error: AxiosError) => {
-    // turn off type assigments here !!!!
     const { data, status } = error.response!;
     switch (status) {
         case 400:

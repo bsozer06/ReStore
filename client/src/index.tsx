@@ -8,17 +8,13 @@ import { createBrowserHistory } from "history";
 import { store } from './app/store/configureStore';
 import { Provider } from 'react-redux';
 
-// const store = configureStore();
-// console.log(store.getState());
-
-
 export const history = createBrowserHistory()
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  // <BrowserRouter>
   <Router history={history}>
     <React.StrictMode>
         <Provider store={store}>
@@ -26,8 +22,6 @@ root.render(
         </Provider>
     </React.StrictMode>
   </Router>
-  // </BrowserRouter>
-
 );
 
 
