@@ -26,16 +26,15 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<PagedList<Product>>> GetProducts([FromQuery] ProductParams productParams)
         {
-            var query = _context.Products
+             var query = _context.Products
                 .Sort(productParams.OrderBy)
                 .Search(productParams.SearchTerm)
                 .Filter(productParams.Brands, productParams.Types)
                 .AsQueryable();
 
-            var products = await PagedList<Product>.ToPagedList(query,
-            productParams.PageNumber, productParams.PageSize);
+             var products = await PagedList<Product>.ToPagedList(query, 
+                productParams.PageNumber, productParams.PageSize);
 
-            // my custom extension
             Response.AddPaginationHeader(products.MetaData);
 
             return products;
