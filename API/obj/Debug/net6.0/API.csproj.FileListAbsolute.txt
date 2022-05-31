@@ -51,3 +51,11 @@ D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win-
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
