@@ -1,5 +1,4 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { parse } from "path";
 import { toast } from "react-toastify";
 import { history } from "../..";            /// index uzerinden geliyor !!!
 import { PaginatedResponse } from "../models/pagination";
@@ -77,10 +76,17 @@ const Basket = {
     removeItem: (productId: number, quantity=1) => requests.delete(`basket?productId=${productId}&quantity=${quantity}`),
 }
 
+const Account = {
+    login: (values: any) => requests.post("account/login", values),
+    register: (values: any) => requests.post("account/register", values),
+    currentUser: (values: any) => requests.get("account/currentUser")
+}
+
 const agent = {
     Catalog,
     TestErrors,
-    Basket
+    Basket,
+    Account
 }
 
 

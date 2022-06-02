@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("[controller]")]
     public class AccountController : BaseApiController
     {
         private readonly UserManager<User> _userManager;
