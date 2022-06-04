@@ -27,11 +27,6 @@ export default function Login() {
         mode: "all"
     })
 
-    // const [values, setValues] = useState({
-    //     username: "",
-    //     password: ""
-    // })
-
     async function submitForm(data: FieldValues) {
         await dispatch(signInUser(data))
         history.push("/catalog")
