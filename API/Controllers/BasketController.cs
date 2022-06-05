@@ -38,7 +38,7 @@ namespace API.Controllers
             if (basket == null) basket = CreateBasket();
 
             var product = await _context.Products.FindAsync(productId);
-            if (product == null) return BadRequest(new ProblemDetails { Title= "Product not found!"});
+            if (product == null) return BadRequest(new ProblemDetails { Title = "Product not found!" });
 
             basket.AddItem(product, quantity);
 
@@ -83,6 +83,10 @@ namespace API.Controllers
                             .FirstOrDefaultAsync(x => x.BuyerId == Request.Cookies["buyerId"]);
         }
 
+        /// <summary>
+        /// Basket olusturma islemi, kullanici bilgilerini cookie uzerinden tutar.
+        /// </summary>
+        /// <returns></returns>
         private Basket CreateBasket()
         {
             var buyerId = Guid.NewGuid().ToString();
