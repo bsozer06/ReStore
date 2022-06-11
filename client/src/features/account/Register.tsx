@@ -5,22 +5,36 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Alert, AlertTitle, List, ListItem, ListItemText, Paper } from '@mui/material';
+import { Paper } from '@mui/material';
 import { Link, useHistory } from 'react-router-dom';
 import agent from '../../app/api/agent';
 import { useForm } from 'react-hook-form';
 import { LoadingButton } from '@mui/lab';
-import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 // const theme = createTheme();
 
 export default function Register() {
 
-  // const history = useHistory()
-  const [validationErrors, setValidationErrors] = useState([]);
-  const { register, handleSubmit, formState: { isSubmitting, isValid, errors } } = useForm({
+  const history = useHistory()
+  const { register, handleSubmit, setError, formState: { isSubmitting, isValid, errors } } = useForm({
     mode: "all"
   })
+
+  function handleApiErrors(errors: any) {
+    if (errors) {
+      errors.forEach((error: string) => {
+        if (error.includes("Password")) {
+          setError("password", { message: error })
+        } else if (error.includes("Email")) {
+          setError("email", { message: error })
+        } else if (error.includes("Username")) {
+          setError("username", { message: error })
+        } 
+      })
+    }
+    console.log(errors);
+  }
 
   return (
     <Container component={Paper} maxWidth="sm" sx={{ display: "flex", flexDirection: "column", alignItems: "center", p: 4 }}>
@@ -33,7 +47,12 @@ export default function Register() {
       <Box
         component="form"
         onSubmit={handleSubmit((data) =>
-          agent.Account.register(data).catch(error => setValidationErrors(error)))
+          agent.Account.register(data)
+          .then(() => {
+            toast.success("Registration successful - you can now login.")
+            history.push("/login")
+          })
+          .catch(error => handleApiErrors(error)))
         }
         noValidate sx={{ mt: 1 }}
       >
@@ -50,7 +69,13 @@ export default function Register() {
           margin="normal"
           fullWidth
           label="Email address"
-          {...register("email", { required: "Email is required" })}
+          {...register("email", { 
+            required: "Email is required",
+            pattern: {
+              value: /^\w+[\w-.]*@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/,
+              message: "not a valid email address"
+            } 
+          })}
           error={!!errors.email}
           helperText={errors?.email?.message}
         />
@@ -59,25 +84,16 @@ export default function Register() {
           fullWidth
           label="Password"
           type="password"
-          {...register("password", { required: "Password is required" })}
+          {...register("password", { 
+            required: "Password is required",
+            pattern: {
+              value: /(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$/,
+              message: "password does nor meet complexity requirments"
+            } 
+          })}
           error={!!errors.password}
           helperText={errors?.password?.message}
         />
-         {
-        validationErrors.length > 0 &&
-          <Alert severity='error'>
-            <AlertTitle>Validation Error</AlertTitle>
-            <List>
-              {
-                validationErrors.map(error => (
-                  <ListItem key={error}>
-                    <ListItemText>{error}</ListItemText>
-                  </ListItem>
-                ))
-              }
-            </List>
-          </Alert>
-      }
         <LoadingButton
           disabled={!isValid}
           loading={isSubmitting}
