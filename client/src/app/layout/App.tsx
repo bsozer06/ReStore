@@ -20,6 +20,8 @@ import Login from "../../features/account/Login";
 import Register from "../../features/account/Register";
 import { fetchCurrentUser } from "../../features/account/accountSlice";
 import PrivateRoute from "./PrivateRoute";
+import Orders  from "../../features/orders/Orders";
+
 
 function App() {
 
@@ -27,7 +29,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   // useCallback fonsiyonun useEffect uzerindeki degisimlerinde kullandım ! 
-  const initApp = useCallback(async() => {
+  const initApp = useCallback(async () => {
     try {
       await dispatch(fetchCurrentUser())
       await dispatch(fetchBasketAsync())
@@ -57,7 +59,7 @@ function App() {
     setDarkMode(!darkMode);
   }
 
-if (loading) return <LoadingComponent message="Initializing app . . . " />
+  if (loading) return <LoadingComponent message="Initializing app . . . " />
 
   return (
     <ThemeProvider theme={theme}>
@@ -74,6 +76,7 @@ if (loading) return <LoadingComponent message="Initializing app . . . " />
           <Route path='/server-error' component={ServerError} />
           <Route path='/basket' component={BasketPage} />
           <PrivateRoute path='/checkout' component={CheckoutPage} />
+          <PrivateRoute path='/orders' component={Orders} />
           <Route path='/login' component={Login} />
           <Route path='/register' component={Register} />
           <Route component={NotFound} />
