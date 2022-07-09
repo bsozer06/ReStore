@@ -59,3 +59,16 @@ D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.Ide
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Stripe.net.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
