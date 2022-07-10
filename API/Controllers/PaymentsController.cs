@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
+using Stripe;
+using Microsoft.Extensions.Configuration;
+using API.Entities.OrderAggregate;
 
 namespace API.Controllers
 {
@@ -13,11 +17,13 @@ namespace API.Controllers
     {
         public PaymentService _paymentService { get; }
         public StoreContext _context { get; }
+        public IConfiguration _config { get; set; }
 
-        public PaymentsController(PaymentService paymentService, StoreContext context)
+        public PaymentsController(PaymentService paymentService, StoreContext context, IConfiguration config)
         {
             _context = context;
             _paymentService = paymentService;
+            _config = config;
         }
 
         [Authorize]
@@ -41,10 +47,26 @@ namespace API.Controllers
 
             var result = await _context.SaveChangesAsync() > 0;
 
-            if (!result) return BadRequest(new ProblemDetails { Title = "Problem updating basket with intent" }); 
-            
-            return basket.MapBasketToDto();    
-            
+            if (!result) return BadRequest(new ProblemDetails { Title = "Problem updating basket with intent" });
+
+            return basket.MapBasketToDto();
+
+        }
+
+        [HttpPost("webhook")]
+        public async Task<ActionResult> StripeWebHook()
+        {
+            var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+            var stripeEvent = EventUtility.ConstructEvent(json, Request.Headers["Stripe-Signature"], _config["StripeSettings:WhSecret"]);
+            var charge = (Charge)stripeEvent.Data.Object;
+
+            var order = await _context.Orders.FirstOrDefaultAsync(x => x.PaymentIntentId == charge.PaymentIntentId);
+
+            if (charge.Status == "succeeded") order.OrderStatus = OrderStatus.PaymentReceived;
+
+            await _context.SaveChangesAsync();
+
+            return new EmptyResult();
         }
 
     }
