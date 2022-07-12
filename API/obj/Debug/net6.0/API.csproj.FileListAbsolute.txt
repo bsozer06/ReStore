@@ -75,3 +75,5 @@ D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\runtimes\win\
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\API.staticwebassets.runtime.json
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Npgsql.dll
 D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\AutoMapper.dll
+D:\burhan\Codes\2022\Udemy\React-Net6\ReStore\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
