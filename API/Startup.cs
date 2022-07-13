@@ -132,6 +132,7 @@ namespace API
 
             services.AddScoped<TokenService>();
             services.AddScoped<PaymentService>();
+            services.AddScoped<ImageService>();
         }
 
 
