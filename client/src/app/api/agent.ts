@@ -45,6 +45,9 @@ axios.interceptors.response.use(async response => {
         case 401:
             toast.error(data.title);
             break;
+        case 403:
+            toast.error("You are not allowed to do that (Yetkisiz)");
+            break;
         case 500:
             history.push({
                 pathname: "/server-error",
@@ -70,12 +73,12 @@ const requests = {
     }).then(responseBody)
 }
 
-function createFormData(item:any) {
+function createFormData(item: any) {
     let formData = new FormData();
     for (const key in item) {
         formData.append(key, item[key])
     }
-    return formData;    
+    return formData;
 }
 
 const Admin = {
