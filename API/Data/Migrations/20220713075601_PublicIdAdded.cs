@@ -2,26 +2,14 @@
 
 namespace API.Data.Migrations
 {
-    public partial class PaymentIntentAdded : Migration
+    public partial class PublicIdAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "PaymentIntentId",
-                table: "Orders",
-                type: "TEXT",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "ClientSecret",
-                table: "Baskets",
-                type: "TEXT",
-                nullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "PaymentIntentId",
-                table: "Baskets",
-                type: "TEXT",
+                name: "PublicId",
+                table: "Products",
+                type: "text",
                 nullable: true);
 
             migrationBuilder.UpdateData(
@@ -29,43 +17,35 @@ namespace API.Data.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "ConcurrencyStamp",
-                value: "e7cc2ae0-6379-4561-95ad-7de4a9226485");
+                value: "8af5c711-bcec-403c-a512-e11353b4a65c");
 
             migrationBuilder.UpdateData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "ConcurrencyStamp",
-                value: "e44c329c-3488-448a-8d7a-81b8dcd109ba");
+                value: "4f65dd00-94e4-4394-ab1e-0c04ad83faaa");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "PaymentIntentId",
-                table: "Orders");
-
-            migrationBuilder.DropColumn(
-                name: "ClientSecret",
-                table: "Baskets");
-
-            migrationBuilder.DropColumn(
-                name: "PaymentIntentId",
-                table: "Baskets");
+                name: "PublicId",
+                table: "Products");
 
             migrationBuilder.UpdateData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "ConcurrencyStamp",
-                value: "e82dfabd-a3ba-4d2d-8ae5-21ab84877bda");
+                value: "2bd0727e-4544-4d9d-8136-794bc53232d2");
 
             migrationBuilder.UpdateData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "ConcurrencyStamp",
-                value: "8dc2cf39-15b6-4031-adb6-4874a2950b38");
+                value: "20314865-c0fe-4c22-9079-41fffa5e0d36");
         }
     }
 }
