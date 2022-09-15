@@ -14,6 +14,11 @@ Store application is developed using React and Net Core
 - Stripe.net
 - Swashbuckle.AspNetCore
 
+Data seeding, pagination, middleware and some services (e.g Image, Payment, Token) were developed here.
+
+For rapid development on back-end side, a spefic business layer was not developed. Business rules and data accessing were carried out on the controllers. This situation can be improved in the future.
+
+
 ## Frontend : React - TypeScript
 ### Used Packages
 - redux toolkit
