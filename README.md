@@ -2,7 +2,7 @@
 Store application is developed using React and Net Core
 
 ## Backend : Net Core
-###Used packages
+### Used packages
 -Microsoft.AspNetCore.Identity.EntityFrameworkCore
 -Microsoft.EntityFrameworkCore.Design
 -Microsoft.EntityFrameworkCore.Sqlite
@@ -15,7 +15,7 @@ Store application is developed using React and Net Core
 -Swashbuckle.AspNetCore
 
 ## Frontend : React - TypeScript
-###Used Packages
+### Used Packages
 -redux toolkit
 -react-router-dom
 -axios
