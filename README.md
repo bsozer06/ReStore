@@ -27,3 +27,6 @@ For rapid development on back-end side, a spefic business layer was not develope
 - mui
 - stripe
 - yup
+
+
+Resource: https://www.udemy.com/course/learn-to-build-an-e-commerce-store-with-dotnet-react-redux/learn/lecture/28963702#overview
